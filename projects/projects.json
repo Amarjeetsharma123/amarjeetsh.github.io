@@ -52,7 +52,7 @@
   {
     "name": "Hotel Management System",
     "desc": "A desktop-based application built using Java Swing and MySQL to manage hotel operations like room booking, customer records, check-in/check-out, billing, and staff details efficiently through a user-friendly interface.",
-    "image": "hotel",
+    "image": "assets/images/projects/hotel.png",
     "category": "mern",
     "links": {
       "view": "#",
@@ -270,3 +270,4 @@
     }
   } 
 ]
+
