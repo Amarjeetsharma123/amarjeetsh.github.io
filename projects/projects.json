@@ -51,7 +51,7 @@
   },
   {
     "name": "Hotel Management System",
-    "desc": "A desktop-based application built using Java Swing and MySQL to manage hotel operations like room booking, customer records, check-in/check-out, billing, and staff details efficiently through a user-friendly interface.",
+    "desc": "A desktop-based application built using Java Swing and MySQL to manage hotel operations like room booking, customer records, check-in/check-out, billing.",
     "image": "hotel",
     "category": "mern",
     "links": {
@@ -61,7 +61,7 @@
   },
   {
     "name": "Library Management System",
-    "desc": "A desktop-based application built using Java Swing and MySQL to manage library operations like book records, member records, issue/return management, and overdue book tracking efficiently through a user-friendly interface.",
+    "desc": "A desktop-based application built using Java Swing and MySQL to manage library operations like book records, member records, issue/return management.",
     "image": "lib",
     "category": "mern",
     "links": {
@@ -71,7 +71,7 @@
   },
   {
     "name": "Try Your Luck",
-    "desc": "A web-based interactive game developed using Bootstrap, CSS, and JavaScript with a Node.js backend, featuring dynamic gameplay, real-time result processing, and a responsive, user-friendly interface for an engaging user experience.",
+    "desc": "A web-based interactive game developed using Bootstrap, CSS, and JavaScript with a Node.js backend, featuring dynamic gameplay.",
     "image": "luc",
     "category": "mern",
     "links": {
@@ -81,7 +81,7 @@
   },
   {
     "name": "Hospital Management System",
-    "desc": "A comprehensive web application developed using PHP and MySQL to efficiently manage hospital operations, including patient records, appointment scheduling, staff management, and billing, all through a user-friendly interface.",
+    "desc": "A comprehensive web application developed using PHP and MySQL to efficiently manage hospital operations, including patient records, appointment scheduling.",
     "image": "hosptal",
     "category": "lamp",
     "links": {
@@ -270,3 +270,4 @@
     }
   } 
 ]
+
