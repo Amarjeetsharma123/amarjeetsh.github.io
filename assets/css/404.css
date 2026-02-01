@@ -45,11 +45,12 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.7rem 10%;
+  padding: 1.7rem 1.2rem; /* mobile-first */
   height: 6.5rem;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(146,161,176,.3);
 }
+@media(min-width:768px){ header{ padding:1.7rem 10%; } }
 section{
   min-height: 100vh;
   padding: 2rem 9%;
@@ -103,13 +104,16 @@ header .navbar ul li a:hover{
   }
   header .navbar{
     position: fixed;
-    top: 6.5rem; right: -120%;
+    top: 6.5rem; right: 0;
     width: 75%;
     height: 100%;
+    transform: translateX(100%);
+    transition: transform .35s ease;
     text-align: left;
     align-items: flex-start;
     background-color: #0e0f31;
   }
+  header .navbar.nav-toggle{ transform: translateX(0); }
   header .navbar ul{
     flex-flow: column;
     padding: 1rem;
@@ -119,7 +123,6 @@ header .navbar ul li a:hover{
     width: 100%;
     margin: 1rem 0;
     border-radius: .5rem;
-    width: 26rem;
   }
   header .navbar ul li a{
     display: block;
@@ -151,11 +154,22 @@ header .navbar ul li a:hover{
     margin-top: 6rem;
     min-height: 60vh;
 }
+.offline-avatar{ 
+  width: clamp(80px, 18vw, 120px);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .wrapper{
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 400px;
+  min-height: 220px;
+  height: auto;
   background-position: center;
+  background-size: cover;
 }
+.wrapper h1{ font-size: clamp(3rem, 10vw, 8rem); } .msg h3{ font-size: clamp(2rem, 6vw, 4rem); } .msg p{ font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
 .msg {
     display: flex;
     flex-direction: column;
