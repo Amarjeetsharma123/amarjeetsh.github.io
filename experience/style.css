@@ -114,13 +114,16 @@ header .navbar ul li a:hover{
   }
   header .navbar{
     position: fixed;
-    top: 6.5rem; right: -120%;
+    top: 6.5rem; right: 0;
     width: 75%;
     height: 100%;
+    transform: translateX(100%);
+    transition: transform .35s ease;
     text-align: left;
     align-items: flex-start;
     background-color: #0e0f31;
   }
+  header .navbar.nav-toggle{ transform: translateX(0); }
   header .navbar ul{
     flex-flow: column;
     padding: 1rem;
@@ -130,7 +133,6 @@ header .navbar ul li a:hover{
     width: 100%;
     margin: 1rem 0;
     border-radius: .5rem;
-    width: 26rem;
   }
   header .navbar ul li a{
     display: block;
@@ -322,6 +324,18 @@ header .navbar ul li a:hover{
   .experience .container::after {
     font-size: 2.2rem;;
   }
+
+  /* Make timeline items full width and stack on small screens */
+  .experience .left,
+  .experience .right {
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .experience::before{ left: 20px; }
+  .experience .left::after, .experience .right::after { left: 15px; }
 }
 /* experience media queries ends */
 /* experience section ends */
