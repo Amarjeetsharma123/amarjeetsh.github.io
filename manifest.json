@@ -1,0 +1,23 @@
+{
+  "name": "Amarjeet Portfolio",
+  "short_name": "Amarjeet",
+  "description": "Developer Portfolio",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/assets/images/AS.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/AS.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
