@@ -19,6 +19,28 @@ html {
 body {
   background: #f7f7f7;
   font-family: "Poppins", sans-serif;
+  overscroll-behavior-x: none; /* prevent horizontal bounce on mobile */
+  max-width: 100vw;
+}
+
+/* Responsive images and media */
+img, picture, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive hero typography */
+.home .content h2 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+}
+.home .content p {
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+}
+/* Prevent absolute button overlap on small screens */
+.home .btn {
+  margin-top: 1rem;
+  position: relative;
 }
 
 *::selection {
@@ -68,14 +90,22 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.7rem 10%;
+  padding: 1.7rem 1.2rem; /* mobile-first */
   height: 6.5rem;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
 }
+@media (min-width: 768px) {
+  header { padding: 1.7rem 10%; }
+}
 section {
   min-height: 100vh;
-  padding: 2rem 9%;
+  padding: 2rem 1.2rem; /* mobile-first padding */
+}
+@media (min-width: 768px) {
+  section {
+    padding: 2rem 9%;
+  }
 }
 .heading {
   font-size: 3.5rem;
@@ -137,13 +167,16 @@ header .navbar ul li a:hover {
   header .navbar {
     position: fixed;
     top: 6.5rem;
-    right: -120%;
+    right: 0;
     width: 75%;
     height: 100%;
+    transform: translateX(100%); /* keep off-canvas without causing overflow */
+    transition: transform .35s ease;
     text-align: left;
     align-items: flex-start;
     background-color: #0e0f31;
   }
+  header .navbar.nav-toggle{ transform: translateX(0); }
   header .navbar ul {
     flex-flow: column;
     padding: 1rem;
@@ -153,7 +186,6 @@ header .navbar ul li a:hover {
     width: 100%;
     margin: 1rem 0;
     border-radius: 0.5rem;
-    width: 26rem;
   }
   header .navbar ul li a {
     display: block;
@@ -212,11 +244,12 @@ header .navbar ul li a:hover {
   z-index: 1;
 }
 .home .image img {
-  width: 70%;
-  margin-left: 6rem;
+  width: clamp(120px, 32vw, 280px);
+  margin: 0 auto;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  aspect-ratio: 1/1; /* reserve space to avoid layout shift */
 }
 .home .image img:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -350,19 +383,20 @@ header .navbar ul li a:hover {
 }
 .about .row {
   display: flex;
-  flex-direction: row;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 4rem;
+  padding: 2rem 0; /* mobile-first */
+  align-items: center;
 }
 .about .row .image {
   text-align: center;
-  flex: 1 1 35rem;
+  flex: 1 1 320px;
 }
 .about .row .image img {
-  margin: 4rem;
-  width: 30rem;
+  margin: 1.5rem auto;
+  width: clamp(160px, 45vw, 420px);
   height: auto;
+  aspect-ratio: 4 / 5;
   border-radius: 5%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
   mix-blend-mode: luminosity;
@@ -658,12 +692,30 @@ header .navbar ul li a:hover {
   margin: 2rem;
 }
 .work .box-container .box {
-  flex: 1 1 30rem;
+  flex: 1 1 320px; /* responsive basis */
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  height: 30rem;
+  height: auto; /* make fluid */
+}
+.work .box-container .box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+.work .box-container .box .content {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  bottom: 0; left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+.work .box-container .box:hover .content {
+  bottom: 25%;
 }
 .work .box-container .box img {
   height: 100%;
@@ -1223,3 +1275,19 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* PWA install button */
+.install-btn {
+  position: fixed;
+  right: 1.8rem;
+  bottom: 6.5rem;
+  background: #0a0a0a;
+  color: #fff;
+  border-radius: 50px;
+  padding: 1rem 1.6rem;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.4);
+  z-index: 1200;
+  cursor: pointer;
+}
+.install-btn[hidden] { display: none; }
